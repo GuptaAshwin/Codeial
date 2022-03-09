@@ -1,0 +1,30 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+  background: #2196f3;
+  color: white;
+  box-shadow: 1px 1px 1px 1px lightgrey;
+}
+nav h1 {
+  margin: 5px;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+nav ul {
+  background-color: #1c4668;
+}
+nav ul li {
+  text-decoration: none;
+}
+nav ul li p {
+  color: azure;
+}
+nav ul li a {
+  color: #10a3a3;
+}
+nav ul li q {
+  color: #2724d3;
+}
+
+/*# sourceMappingURL=header.css.map */

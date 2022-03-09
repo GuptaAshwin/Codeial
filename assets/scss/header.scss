@@ -1,0 +1,38 @@
+
+    nav{
+        display: flex;
+        justify-content: space-between;
+        padding: 0 10px;
+        background: #2196f3;
+        color: white;
+        box-shadow: 1px 1px 1px 1px lightgrey;
+
+        
+            h1{
+                margin: 5px;
+                font-size: 1.4rem;
+                font-weight: bold;
+            }
+        
+       
+            
+            ul{
+                background-color: #1c4668;
+                li{
+                    text-decoration: none;
+                    p{
+                        color: azure;
+                    }
+                    a{
+                        color: rgb(16, 163, 163);
+                    }
+                    q{
+                        color: rgb(39, 36, 211);
+                    }
+                }
+            }
+            
+        
+
+       
+    }
