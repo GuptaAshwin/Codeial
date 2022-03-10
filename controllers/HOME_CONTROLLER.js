@@ -1,9 +1,13 @@
+const Post = require('../models/post');
+
 module.exports.home = function(req, res){
-    console.log(req.cookies);
-    res.cookie('user_id', 25);
+   
+Post.find({}).populate('user').exec(function(req,posts){
     return res.render('home', {
-        title: "Home"
+        title: " Codieal | Home",
+        posts: posts
     });
-}
+});  
+};
 
 // module.exports.actionName = function(req, res){}

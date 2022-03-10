@@ -1,6 +1,6 @@
 const mongoose=require('mongoose');
 
-const posySchema= new mongoose.Schema({
+const postSchema= new mongoose.Schema({
     content : {
         type : String ,
         required: true,
@@ -14,5 +14,5 @@ const posySchema= new mongoose.Schema({
     timestamps:true
 });
 
-const Post =mongoose.model('Post',postschema);
+const Post =mongoose.model('Post',postSchema);
 module.exports = Post;
