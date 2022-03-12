@@ -1,12 +1,13 @@
 div {
   display: flex;
   padding: 10px;
+  width: 100vw;
 }
-div section {
+div #feed-post {
   padding: 10px;
   width: 70%;
 }
-div section {
+div #user-friends {
   padding: 10px;
   width: 25%;
   border-left: 1px solid black;

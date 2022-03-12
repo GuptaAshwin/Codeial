@@ -1,6 +1,6 @@
 const { send } = require('express/lib/response');
 const User = require('../models/user');
-
+// const flash = require('connect-flash');
 
 module.exports.profile = function (req, res) {
 
@@ -50,6 +50,7 @@ module.exports.signIn = function (req, res) {
 // get the sign up data
 module.exports.create = function (req, res) {
     if (req.body.password != req.body.confirm_password) {
+        req.flash('error',"Password Not Matched");
         return res.redirect('back');
     }
 
@@ -72,12 +73,15 @@ module.exports.create = function (req, res) {
 
 // sign in and create a session for the user
 module.exports.createSession = function (req, res) {
+   
+   req.flash('success','Logged in Successfuly');
     return res.redirect('/');
 }
 
 module.exports.destroySession = function (req, res) {
 
     req.logout();
+    req.flash('success','You Have Logged Out');
 
     return res.redirect('/');
 }
