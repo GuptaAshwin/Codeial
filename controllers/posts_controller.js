@@ -1,6 +1,7 @@
 const Post = require('../models/post');
 const Comment = require('../models/comment');
-const { post } = require('../routes/users');
+const post  = require('../routes/users');
+
 module.exports.create = async function (req, res) {
     try {
         let post = await Post.create({

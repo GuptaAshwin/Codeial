@@ -1,77 +1,91 @@
-const Comment = require('../models/comment');
-const Post = require('../models/post');
+const Comment = require("../models/comment");
+const Post = require("../models/post");
+const commentsMailer = require("../mailers/comments_mailer");
 
 module.exports.create = async function (req, res) {
+  try {
+    let post = await Post.findById(req.body.post);
 
-    try {
-        let post = await Post.findById(req.body.post);
+    if (post) {
+      let comment = await Comment.create({
+        content: req.body.content,
+        post: req.body.post,
+        user: req.user._id,
+      });
 
-        if (post) {
-            let comment = await Comment.create({
-                content: req.body.content,
-                post: req.body.post,
-                user: req.user._id
-            });
+      post.comments.push(comment);
+      post.save();
+      // not able to execute
+      //  comment = await comment.populate('user', 'name email').execPopulate();
+      // current who is logging
+      let userDet = await Comment.findOne({ user: req.user._id })
+        .populate("user")
+        .exec(); // populating username from post
+      // need to add comment
+      // commentMailer.newComment(userDet,comment);
+      //   let job=  queue.create('emails',comment).save(function(err){
 
-            post.comments.push(comment);
-            post.save();
+      // this is being don by me t to merge userset and comment and send to job
+      // warpping comment data and user details
+      let newCommNadUserDetails = {
+        comment: comment,
+        userDet: userDet,
+      };
 
-            if (req.xhr) {
-                // Similar for comments to fetch the user's id!
-                comment = await comment.populate('user', 'name').execPopulate();
+      commentsMailer.newComment(newCommNadUserDetails);
+      if (req.xhr) {
+        // Similar for comments to fetch the user's id!
 
-                return res.status(200).json({
-                    data: {
-                        comment: comment
-                    },
-                    message: "Post created!"
-                });
-            }
+        return res.status(200).json({
+          data: {
+            comment: comment,
+          },
+          message: "Post created!",
+        });
+      }
 
+      req.flash("success", "Comment published!");
 
-            req.flash('success', 'Comment published!');
-
-            res.redirect('/');
-        }
-    } catch (err) {
-        req.flash('error', err);
-        return;
+      res.redirect("/");
     }
-}
+  } catch (err) {
+    req.flash("error", err);
+    return;
+  }
+};
 
 module.exports.destroy = async function (req, res) {
+  try {
+    let comment = await Comment.findById(req.params.id);
 
-    try {
-        let comment = await Comment.findById(req.params.id);
+    if (comment.user == req.user.id) {
+      let postId = comment.post;
 
-        if (comment.user == req.user.id) {
+      comment.remove();
 
-            let postId = comment.post;
+      let post = Post.findByIdAndUpdate(postId, {
+        $pull: { comments: req.params.id },
+      });
 
-            comment.remove();
+      // send the comment id which was deleted back to the views
+      if (req.xhr) {
+        return res.status(200).json({
+          data: {
+            comment_id: req.params.id,
+          },
+          message: "Post deleted",
+        });
+      }
 
-            let post = Post.findByIdAndUpdate(postId, { $pull: { comments: req.params.id } });
+      req.flash("success", "Comment deleted!");
 
-            // send the comment id which was deleted back to the views
-            if (req.xhr) {
-                return res.status(200).json({
-                    data: {
-                        comment_id: req.params.id
-                    },
-                    message: "Post deleted"
-                });
-            }
-
-
-            req.flash('success', 'Comment deleted!');
-
-            return res.redirect('back');
-        } else {
-            req.flash('error', 'Unauthorized');
-            return res.redirect('back');
-        }
-    } catch (err) {
-        req.flash('error', err);
-        return;
+      return res.redirect("back");
+    } else {
+      req.flash("error", "Unauthorized");
+      return res.redirect("back");
     }
-}
+  } catch (err) {
+    req.flash("error", err);
+    return;
+  }
+};
