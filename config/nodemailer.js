@@ -10,12 +10,13 @@ let transporter = nodemailer.createTransport({
     secure: false,
     auth: {
         user: 'ashwinguptaak',
-        pass: '******'
+        pass: 'DADmom13'
     }
 });
 
 
 let renderTemplate = (data, relativePath) => {
+    console.log(data.comment);
     let mailHTML;
     ejs.renderFile(
         path.join(__dirname, '../views/mailers',relativePath),
