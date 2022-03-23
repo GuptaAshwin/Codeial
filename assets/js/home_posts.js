@@ -1,41 +1,42 @@
 {
-    //    method to submit the form data for new post using AJAX
-    let createPost = function () {
-      let newPostForm = $("#new-post-form");
-  
-      newPostForm.submit(function (e) {
-        e.preventDefault();
-  
-        $.ajax({
-          type: "post",
-          url: "/posts/create",
-          data: newPostForm.serialize(),
-          success: function (data) {
-            let newPost = newPostDom(data.data.post);
-            $("#posts-list-container>ul").prepend(newPost);
-            deletePost($(" .delete-post-button", newPost));
-  
-            // call the create comment class
-            // new PostComments(data.data.post._id);
-  
-            new Noty({
-              theme: "relax",
-              text: "Post published!",
-              type: "success",
-              layout: "topRight",
-              timeout: 1500,
-            }).show();
-          },
-          error: function (error) {
-            console.log(error.responseText);
-          },
-        });
+  //    method to submit the form data for new post using AJAX
+  let createPost = function () {
+    let newPostForm = $("#new-post-form");
+
+    newPostForm.submit(function (e) {
+      e.preventDefault();
+
+      $.ajax({
+        type: "post",
+        url: "/posts/create",
+        data: newPostForm.serialize(),
+        success: function (data) {
+          let newPost = newPostDom(data.data.post);
+          $("#posts-list-container>ul").prepend(newPost);
+          deletePost($(" .delete-post-button", newPost));
+
+          // call the create comment class
+          new PostComments(data.data.post._id);
+          // enable the functionality of the toggle like button on the new post
+          new ToggleLike($(' .toggle-like-button', newPost));
+          new Noty({
+            theme: "relax",
+            text: "Post published!",
+            type: "success",
+            layout: "topRight",
+            timeout: 1500,
+          }).show();
+        },
+        error: function (error) {
+          console.log(error.responseText);
+        },
       });
-    };
-  
-    // method to create a post in DOM
-    let newPostDom = function (post) {
-      return $(`<li id="post-${post._id}">
+    });
+  };
+  // show the count of zero likes on this post
+  // method to create a post in DOM
+  let newPostDom = function (post) {
+    return $(`<li id="post-${post._id}">
                       <p>
                           
                           <small>
@@ -47,6 +48,15 @@
                           <small>
                           ${post.user.name}
                           </small>
+                          <small>
+                            
+                          <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${post._id}&type=Post">
+                              0 Likes
+                          </a>
+                      
+                  </small>
+
+
                       </p>
                       <div class="post-comments">
                           
@@ -65,49 +75,48 @@
                       </div>
                       
                   </li>`);
-    };
-  
-    // method to delete a post from DOM
-    // method to delete a post from DOM
-    let deletePost = function (deleteLink) {
-      $(deleteLink).click(function (e) {
-        e.preventDefault();
-  
-        $.ajax({
-          type: "get",
-          url: $(deleteLink).prop("href"),
-          success: function (data) {
-            $(`#post-${data.data.post_id}`).remove();
-            new Noty({
-              theme: "relax",
-              text: "Post Deleted",
-              type: "success",
-              layout: "topRight",
-              timeout: 1500,
-            }).show();
-          },
-          error: function (error) {
-            console.log(error.responseText);
-          },
-        });
+  };
+
+  // method to delete a post from DOM
+  // method to delete a post from DOM
+  let deletePost = function (deleteLink) {
+    $(deleteLink).click(function (e) {
+      e.preventDefault();
+
+      $.ajax({
+        type: "get",
+        url: $(deleteLink).prop("href"),
+        success: function (data) {
+          $(`#post-${data.data.post_id}`).remove();
+          new Noty({
+            theme: "relax",
+            text: "Post Deleted",
+            type: "success",
+            layout: "topRight",
+            timeout: 1500,
+          }).show();
+        },
+        error: function (error) {
+          console.log(error.responseText);
+        },
       });
-    };
-  
-    // CONVERTING ALL THE POST INTO AJAX
-    let convertAlPostInToAjax = function () {
-      $("#posts-list-container>ul>li").each(function () {
-        let self = $(this); // hete each list
-        console.log(self);
-        let deleteButton = $(" .delete-post-button", this);
-        deletePost(deleteButton);
-        // get the post's id by splitting the id attribute
-        let postId = self.prop("id").split("-")[1];
-        console.log(postId);
-        new PostComments(postId);
-      });
-    };
-  
-    createPost();
-    convertAlPostInToAjax();
-  }
-  
+    });
+  };
+
+  // CONVERTING ALL THE POST INTO AJAX
+  let convertAlPostInToAjax = function () {
+    $("#posts-list-container>ul>li").each(function () {
+      let self = $(this); // hete each list
+      console.log(self);
+      let deleteButton = $(" .delete-post-button", this);
+      deletePost(deleteButton);
+      // get the post's id by splitting the id attribute
+      let postId = self.prop("id").split("-")[1];
+      console.log(postId);
+      new PostComments(postId);
+    });
+  };
+
+  createPost();
+  convertAlPostInToAjax();
+}

@@ -1,0 +1,155 @@
+[33mcommit 5236a6da2c7b5abf444a92de4ca6287689921969[m[33m ([m[1;36mHEAD -> [m[1;32mMaster-Branch[m[33m, [m[1;31morigin/Master-Branch[m[33m)[m
+Author: Ashwin Dinesh Gupta <ashwinguptaak@gmail.com>
+Date:   Mon Mar 21 21:59:21 2022 +0530
+
+    comments mailed in gmail done with rendered template.ejs file
+
+[33mcommit 78ae66bb087657563be4d6a628903c9acef9bc0b[m
+Author: Ashwin Dinesh Gupta <ashwinguptaak@gmail.com>
+Date:   Mon Mar 21 13:43:43 2022 +0530
+
+    smtp and nodemailer setup
+
+[33mcommit 7f29ea6b53b669b2313b2dd44899a4f41bf9d031[m
+Author: Ashwin Dinesh Gupta <ashwinguptaak@gmail.com>
+Date:   Sun Mar 20 01:26:19 2022 +0530
+
+    Social Authentication Using passport-google-oauth done
+
+[33mcommit 4fb8ff390401b69c45d2d1cc9947e6f7298dc539[m
+Author: Ashwin Dinesh Gupta <ashwinguptaak@gmail.com>
+Date:   Sat Mar 19 21:21:12 2022 +0530
+
+    Api (making APIs and JWT authentication) using Postman
+
+[33mcommit a3a40d22e0838d6da73ba7c5038f9f669804c49c[m
+Author: Ashwin Dinesh Gupta <ashwinguptaak@gmail.com>
+Date:   Tue Mar 15 23:57:14 2022 +0530
+
+    File Upload Part Completed
+
+[33mcommit 99da5c16e29cfb5be3fd1ffad6f7b6f6b09dad70[m
+Author: Ashwin Dinesh Gupta <ashwinguptaak@gmail.com>
+Date:   Tue Mar 15 20:43:45 2022 +0530
+
+    comments added via ajax with noty and through class
+
+[33mcommit eb2d8cbd598bbc73a927045fa8b00a09d8b71c6c[m
+Author: Ashwin Dinesh Gupta <ashwinguptaak@gmail.com>
+Date:   Tue Mar 15 13:47:19 2022 +0530
+
+    Creating and Deleting Post Via Ajax without refreshing Page
+
+[33mcommit b00b93265b023fd273cb260418852f9b52962f1c[m
+Author: Ashwin Dinesh Gupta <ashwinguptaak@gmail.com>
+Date:   Sat Mar 12 23:55:12 2022 +0530
+
+    Async, Await and connect-flash used
+
+[33mcommit 2e86a3bcbb5e21b56dd17f4d20cc9b08311d3aa4[m
+Author: Ashwin Dinesh Gupta <ashwinguptaak@gmail.com>
+Date:   Sat Mar 12 12:51:49 2022 +0530
+
+    Deleting and Updating Objects in Database + Distributing Views
+
+[33mcommit b19f39e0bdfad6fcb3e7f61c236d78b9b6f77084[m
+Author: Ashwin Dinesh Gupta <ashwinguptaak@gmail.com>
+Date:   Thu Mar 10 21:34:19 2022 +0530
+
+    Addded Comment and populated it
+
+[33mcommit 2911f5ed5a542d2b55a960b3873826c3080ab702[m
+Author: Ashwin Dinesh Gupta <ashwinguptaak@gmail.com>
+Date:   Thu Mar 10 13:31:43 2022 +0530
+
+    Display Post and check Authentication of post completed
+
+[33mcommit 8c314221fe76d23206806178f31362a1d1d14e0b[m
+Author: Ashwin Dinesh Gupta <ashwinguptaak@gmail.com>
+Date:   Wed Mar 9 21:02:40 2022 +0530
+
+    Added Post and Passport
+
+[33mcommit 815f671cc9cab4ea80090ebb74944c73fc7ffccc[m[33m ([m[1;31morigin/manual-local-auth[m[33m, [m[1;32mmanual-local-auth[m[33m)[m
+Author: Ashwin Dinesh Gupta <ashwinguptaak@gmail.com>
+Date:   Wed Mar 9 19:39:08 2022 +0530
+
+    Authentication of Passport completed and sass added as header file scss
+
+[33mcommit 6baef41adfb6e64184d0884c8beaf9fe2c5e1196[m
+Author: Ashwin Dinesh Gupta <ashwinguptaak@gmail.com>
+Date:   Thu Mar 3 23:04:36 2022 +0530
+
+    commiting after a time to check main branch
+
+[33mcommit 9543e1600927a53418ed63ba3a1cdfe513dccebd[m
+Author: Ashwin Dinesh Gupta <ashwinguptaak@gmail.com>
+Date:   Tue Jan 18 13:09:28 2022 +0530
+
+    sign in sign out function created in userController
+
+[33mcommit fa95cb319a6fc8589433a34cb9793b7ae93107d5[m
+Author: Ashwin Dinesh Gupta <ashwinguptaak@gmail.com>
+Date:   Mon Jan 17 21:26:17 2022 +0530
+
+    Sign Up with database page added
+
+[33mcommit 2c2b6630b1fb412ec456d264b2265f59d9645fea[m
+Author: Ashwin Dinesh Gupta <ashwinguptaak@gmail.com>
+Date:   Mon Jan 17 02:04:00 2022 +0530
+
+    sign in and sign up page added
+
+[33mcommit d83ac558006182f9a19067d6f7839c9c4fcc2a2a[m
+Author: Ashwin Dinesh Gupta <ashwinguptaak@gmail.com>
+Date:   Mon Jan 17 00:58:26 2022 +0530
+
+    database mongoose connected
+
+[33mcommit ca1cb083ac0c00011f0f6ced7826c285f8d90c9a[m
+Author: Ashwin Dinesh Gupta <ashwinguptaak@gmail.com>
+Date:   Mon Jan 17 00:48:59 2022 +0530
+
+    static files access setting
+
+[33mcommit 7f08e56a0363d653f26d96b061ce689f534bc5b8[m
+Author: Ashwin Dinesh Gupta <ashwinguptaak@gmail.com>
+Date:   Mon Jan 17 00:25:42 2022 +0530
+
+    saving to github
+
+[33mcommit afb4291eeee2043ea461ed5db1a31c66e4a180c3[m
+Author: Ashwin Dinesh Gupta <ashwinguptaak@gmail.com>
+Date:   Sat Jan 15 19:47:49 2022 +0530
+
+    saving to github
+
+[33mcommit 454dee05211e4da854cb3debaafbd2ad452c2996[m
+Author: Ashwin Dinesh Gupta <ashwinguptaak@gmail.com>
+Date:   Sat Jan 15 19:47:00 2022 +0530
+
+    saving to github
+
+[33mcommit a1cbc2c26a473ee196b226c4b2635d36031b3f46[m
+Author: Ashwin Dinesh Gupta <ashwinguptaak@gmail.com>
+Date:   Sat Jan 15 13:51:31 2022 +0530
+
+    adding users profile router and controller
+
+[33mcommit e334a07476fecff73320e32c8f6e66b45a55bbab[m
+Author: Ashwin Dinesh Gupta <ashwinguptaak@gmail.com>
+Date:   Sat Jan 15 13:01:11 2022 +0530
+
+    controller and router added
+
+[33mcommit dc97a386537dca1d21dec550d07b3c31d49cd80e[m
+Author: Ashwin Dinesh Gupta <ashwinguptaak@gmail.com>
+Date:   Sat Jan 15 00:50:09 2022 +0530
+
+    first commit :creating directories
+
+[33mcommit 999f731b54727a980aea76671c903a0cffb52040[m
+Author: GuptaAshwin <89512876+GuptaAshwin@users.noreply.github.com>
+Date:   Sat Jan 15 13:49:57 2022 +0530
+
+    Initial commit
