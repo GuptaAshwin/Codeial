@@ -1,16 +1,15 @@
-div {
+#home-container {
   display: flex;
-  padding: 10px;
-  width: 100vw;
 }
-div #feed-post {
-  padding: 10px;
+#home-container #feed-post {
   width: 70%;
-}
-div #user-friends {
   padding: 10px;
-  width: 25%;
-  border-left: 1px solid black;
+}
+#home-container #user-friends {
+  width: 30%;
+  padding: 10px;
+  border-left: 1px solid lightgrey;
+  height: 100%;
 }
 
 /*# sourceMappingURL=home.css.map */

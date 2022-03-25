@@ -1,4 +1,4 @@
-
+#layout-header{
     nav{
         display: flex;
         justify-content: space-between;
@@ -7,32 +7,29 @@
         color: white;
         box-shadow: 1px 1px 1px 1px lightgrey;
 
-        
-            h1{
+        .mini-logo{
+            p{
                 margin: 5px;
                 font-size: 1.4rem;
                 font-weight: bold;
             }
-        
-       
-            
+        }
+
+        .auth-links{
             ul{
-                background-color: #1c4668;
+                margin: 5% 5px;
+                display: flex;
+                list-style: none;
                 li{
-                    text-decoration: none;
-                    p{
-                        color: rgb(236, 9, 9);
-                    }
-                    a{
-                        color: rgb(185, 243, 24);
-                    }
-                    q{
-                        color: rgb(197, 197, 218);
-                    }
+                    margin-right: 10px;
                 }
             }
-            
-        
+        }
 
-       
+        a{
+            color: white;
+            text-decoration: none;
+        }
+
     }
+}
