@@ -1,5 +1,5 @@
 const nodeMailer = require("../config/nodemailer");
-
+const env = require('../config/environment')
 // this is another way of exporting a method
 exports.newComment = (comment) => {
   // console.log(comment.userDet);

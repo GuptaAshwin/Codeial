@@ -1,5 +1,6 @@
 #home-container {
   display: flex;
+  margin-left: 10px;
 }
 #home-container #feed-post {
   width: 70%;
