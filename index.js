@@ -1,7 +1,10 @@
 const express = require('express');
 const env = require('./config/environment');
+const logger = require('morgan');
+
 const cookieParser = require('cookie-parser');
 const app = express();
+require("./config/view_helper")(app);
 const port = 8000;
 const expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose');
@@ -15,7 +18,7 @@ const passportGoogle =  require('./config/passport-google-oauth2-strategy');
 const MongoStore = require('connect-mongo');
 const flash= require('connect-flash');
 const customMware= require('./config/middleware');
-
+const path = require('path');
 // setup the chat server to be used with socket.io
 const chatServer = require('http').createServer(app);
 const chatSockets = require('./config/chat_sockets').chatSockets(chatServer);
@@ -26,10 +29,12 @@ app.use(express.urlencoded());
 
 app.use(cookieParser());
 
-app.use(express.static(env.asset_path));
+app.use(express.static(path.join(__dirname,env.asset_path)));
 
 // make the uploads path available to browser
 app.use('/uploads', express.static(__dirname + '/uploads'));
+
+app.use(logger(env.morgan.mode, env.morgan.options));
 
 app.use(expressLayouts);
 // extract style and scripts from sub pages into the layout
