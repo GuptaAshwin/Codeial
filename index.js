@@ -3,6 +3,7 @@ const env = require('./config/environment');
 const logger = require('morgan');
 
 const cookieParser = require('cookie-parser');
+const cors = require('cors')
 const app = express();
 require("./config/view_helper")(app);
 const port = 8000;
@@ -20,7 +21,7 @@ const flash= require('connect-flash');
 const customMware= require('./config/middleware');
 const path = require('path');
 // setup the chat server to be used with socket.io
-const chatServer = require('http').createServer(app);
+const chatServer = require('http').Server(app);
 const chatSockets = require('./config/chat_sockets').chatSockets(chatServer);
 chatServer.listen(5000);
 console.log('chat server is listening on port 5000');
@@ -28,7 +29,7 @@ console.log('chat server is listening on port 5000');
 app.use(express.urlencoded());
 
 app.use(cookieParser());
-
+app.use(cors());
 app.use(express.static(path.join(__dirname,env.asset_path)));
 
 // make the uploads path available to browser
